@@ -2,6 +2,9 @@
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
+include_once "WriterFactory.php";
+include_once "UnixCsvWriter.php";
+include_once "UnixJsonWriter.php";
 class UnixWriterFactory implements WriterFactory
 {
 

@@ -2,6 +2,7 @@
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
+include_once "CsvWriter.php";
 class WinCsvWriter implements CsvWriter
 {
 

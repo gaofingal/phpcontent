@@ -2,6 +2,8 @@
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
+include_once "JsonWriter.php";
+
 class UnixJsonWriter implements JsonWriter
 {
 

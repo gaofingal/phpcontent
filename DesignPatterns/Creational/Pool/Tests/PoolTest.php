@@ -2,8 +2,12 @@
 
 namespace DesignPatterns\Creational\Pool\Tests;
 
+use DesignPatterns\Creational\Pool\StringReverseWorker;
 use DesignPatterns\Creational\Pool\WorkerPool;
 use PHPUnit\Framework\TestCase;
+
+include_once dirname(__DIR__) . "/WorkerPool.php";
+include_once dirname(__DIR__) . "/StringReverseWorker.php";
 
 class PoolTest extends TestCase
 {
@@ -12,9 +16,10 @@ class PoolTest extends TestCase
         $pool = new WorkerPool();
         $work1 = $pool->get();
         $work2 = $pool->get();
+        $work2->run("abx");
 
-        $this->assetCount(2, $pool);
-        $this->assetNotSame($work1, $work2);
+        $this->assertCount(2, $pool);
+        $this->assertNotSame($work1, $work2);
     }
 
     public function testCanGetSameInstanceTwiceWhenDisposingItFirst()
@@ -24,7 +29,7 @@ class PoolTest extends TestCase
         $pool->dispose($work1);
         $work2 = $pool->get();
 
-        $this->assetCount(1, $pool);
-        $this->assetSame($work1, $work2);
+        $this->assertCount(1, $pool);
+        $this->assertSame($work1, $work2);
     }
 }

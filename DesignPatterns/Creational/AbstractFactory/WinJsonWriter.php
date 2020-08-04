@@ -2,6 +2,7 @@
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
+include_once "JsonWriter.php";
 class WinJsonWriter implements JsonWriter
 {
 

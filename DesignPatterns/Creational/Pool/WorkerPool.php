@@ -4,6 +4,8 @@ namespace DesignPatterns\Creational\Pool;
 
 use Countable;
 
+include_once "StringReverseWorker.php";
+
 class WorkerPool implements Countable
 {
 
@@ -19,10 +21,10 @@ class WorkerPool implements Countable
 
     public function get(): StringReverseWorker
     {
-        if ($this->count($this->freeWorkers) == 0){
+        if (count($this->freeWorkers) == 0){
             $worker = new StringReverseWorker();
         }else{
-            $worker = array_pop($this->occupiedWorkers);
+            $worker = array_pop($this->freeWorkers);
         }
 
         $this->occupiedWorkers[spl_object_hash($worker)] = $worker;

@@ -2,6 +2,8 @@
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
+include_once "CsvWriter.php";
+
 class UnixCsvWriter implements CsvWriter
 {
 
