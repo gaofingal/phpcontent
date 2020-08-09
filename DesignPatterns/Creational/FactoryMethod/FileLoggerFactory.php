@@ -1,0 +1,21 @@
+<?php declare(strict_types=1);
+
+namespace DesignPatterns\Creational\FactoryMethod;
+
+include_once "LoggerFactory.php";
+include_once "FileLogger.php";
+
+class FileLoggerFactory implements LoggerFactory
+{
+    private $filePath;
+
+    public function __construct(string $filePath)
+    {
+        $this->filePath = $filePath;
+    }
+
+    public function createLogger(): Logger
+    {
+        return new FileLogger($this->filePath);
+    }
+}
