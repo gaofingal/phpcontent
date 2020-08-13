@@ -3,6 +3,7 @@
 
 namespace DesignPatterns\Structural\Adapter;
 
+include_once "EBook.php";
 
 class Kindle implements EBook
 {

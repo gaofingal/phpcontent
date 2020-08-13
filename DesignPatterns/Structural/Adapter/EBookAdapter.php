@@ -3,6 +3,7 @@
 
 namespace DesignPatterns\Structural\Adapter;
 
+include_once "Book.php";
 
 class EBookAdapter implements Book
 {
@@ -25,6 +26,6 @@ class EBookAdapter implements Book
 
     public function getPage(): int
     {
-        $this->ebook->getPage()[0];
+        return $this->ebook->getPage()[0];
     }
 }
